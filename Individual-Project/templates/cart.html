@@ -68,3 +68,69 @@
         <a href="/suggestionstoday">suggestions today</a>
         <a href="/suggestions">suggest a product</a>
     </header>
+    <div class="container">
+        <h2>My Cart</h2>
+        <div class="cart-items" id="cartItems"> <!-- Add an id to the cart items container -->
+            <!-- Cart items will be dynamically added here using JavaScript -->
+        </div>
+    <script>
+        // Function to create and add a product element to the cart items container
+        function createProductElement(product) {
+            const productDiv = document.createElement('div');
+            productDiv.classList.add('product');
+
+            const img = document.createElement('img');
+            img.src = product.image;
+            img.alt = product.name;
+            img.width = 100;
+            productDiv.appendChild(img);
+
+            const p = document.createElement('p');
+            p.textContent = `${product.name} - $${product.price}`;
+            productDiv.appendChild(p);
+
+            // Create and add the remove button
+            const removeButton = document.createElement('button');
+            removeButton.textContent = 'Remove';
+            removeButton.classList.add('btn', 'btn-danger'); // Add some styling classes (you can customize these classes)
+            removeButton.addEventListener('click', () => removeProductFromCart(product.id)); // Call the removeProductFromCart function when the button is clicked
+            productDiv.appendChild(removeButton);
+
+            return productDiv;
+        }
+
+        // Function to remove a product from the cart
+        function removeProductFromCart(productId) {
+            // Retrieve cart items from local storage
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+            // Find the index of the product to be removed
+            const productIndex = cartItems.findIndex(product => product.id === productId);
+
+            // If the product is found in the cart, remove it
+            if (productIndex !== -1) {
+                cartItems.splice(productIndex, 1); // Remove the product from the array
+                localStorage.setItem('cartItems', JSON.stringify(cartItems)); // Update the cart items in local storage
+                displayCartItems(); // Re-display the cart items after removal
+            }
+        }
+
+
+        // Function to display cart items in the cart items container
+        function displayCartItems() {
+            const cartItemsContainer = document.getElementById('cartItems');
+            cartItemsContainer.innerHTML = ''; // Clear previous contents
+
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            cartItems.forEach(product => {
+                const productElement = createProductElement(product);
+                cartItemsContainer.appendChild(productElement);
+            });
+        }
+
+        // Call the displayCartItems function to show cart items when the page loads
+        displayCartItems();
+    </script>
+    <!-- ... (existing code) ... -->
+</body>
+</html>
