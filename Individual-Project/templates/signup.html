@@ -2,63 +2,64 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <form method="POST" action="/signup">
-        <!-- Heading -->
-        <h4>
-            Create an account
-        </h4>
+    <div class="container mt-5">
+        <form method="POST" action="/signup" class="border p-4 rounded bg-light">
+            <!-- Heading -->
+            <h4 class="text-center mb-4 text-primary">Create an account</h4>
 
-        <!-- Subheading -->
-        <p >
-            Please fill up your information below to sign up.
-        </p>
+            <!-- Subheading -->
+            <p class="text-center mb-4">Please fill up your information below to sign up.</p>
 
-        <!-- Email -->
-        <div>
-            <label>Email address</label>
-            <div>
-                <input type="email"  name="email" id="emailStr" required>
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" name="email" id="email" required>
             </div>
-        </div>
 
-        <div>
-            <label>username name</label>
-            <div>
-                <input type="username"  name="username" id="usernameStr" required>
+            <!-- Username -->
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" name="username" id="username" required>
             </div>
-        </div>
 
-        <div>
-            <label>full name</label>
-            <div>
-                <input type="fullname"  name="fullname" id="fullnameStr" required>
+            <!-- Full Name -->
+            <div class="form-group">
+                <label for="fullname">Full Name</label>
+                <input type="text" class="form-control" name="fullname" id="fullname" required>
             </div>
-        </div>
 
-        <div>
-            <label>number</label>
-            <div>
-                <input type="number"  name="number" id="numberStr" required minlength="3">
+            <!-- Number -->
+            <div class="form-group">
+                <label for="number">Number</label>
+                <input type="number" class="form-control" name="number" id="number" required minlength="3">
             </div>
-        </div>
 
-        <!-- Password -->
-        <div>
-            <label>Password</label>
-            <div class="input-group">
-                <input type="password"  name="password" minlength="6">
+            <!-- Password -->
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" name="password" minlength="6">
             </div>
+            
+            <!-- Button -->
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary btn-block">Sign up</button>
+            </div>
+        </form>
+
+        <div class="text-center mt-3">
+            <a href="/" class="btn btn-link">Sign in</a>
         </div>
-        
-        <!-- Button -->
-        <div>
-            <input type="submit"/>
-        </div>
-    </form>
-    <br>
-    <a href="/"><button>signin</button></a>
+    </div>
+
+    <!-- Add Bootstrap JS (jQuery and Popper.js are also required) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

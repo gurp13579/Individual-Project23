@@ -1,26 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Supermarket Suggestions</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-color: #f9f9f9;
+        }
+        .jumbotron {
+            background-color: #fcbb4c;
+            color: #ffffff;
+        }
+        .btn-primary {
+            background-color: #ff8a65;
+            border-color: #ff8a65;
+        }
+        .btn-primary:hover {
+            background-color: #ff7043;
+            border-color: #ff7043;
+        }
+        .container {
+            margin-top: 30px;
+        }
+        .product-card {
+            border: 1px solid #ccc;
+            padding: 15px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .product-card h2 {
+            color: #ff8a65;
+        }
+        .product-image {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 
 <body>
 
 <div class="jumbotron text-center">
-  <h1>suggestions today</h1>
-  <p>this are the suggestions for today</p> 
+    <h1>Supermarket Suggestions</h1>
+    <p>This is the list of suggestions for today</p> 
     <nav>
-  	<a href="/suggestions">suggest a product</a>
-  	<a href="/home">home</a>
-  	<a href="/cart">cart</a>
-  	<a href="/products">products</a>
+        <!-- Convert the links to buttons -->
+        <a href="/suggestions" class="btn btn-primary">Suggest a Product</a>
+        <a href="/home" class="btn btn-primary">Home</a>
+        <a href="/cart" class="btn btn-primary">Cart</a>
+        <a href="/products" class="btn btn-primary">Products</a>
+    </nav>
 </div>
 
-	{%for post in d%}
-		{{d[post]["product"]}}
-		<img src="{{d[post]['picture']}}" height="300" width="300">
-	{%endfor%}
+<div class="container">
+    {% for post in d %}
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="product-card">
+                    <h2>{{ d[post]["product"] }}</h2>
+                    <img src="{{ d[post]['picture'] }}" class="product-image img-responsive" alt="Product Image">
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
 
 </body>
+</html>

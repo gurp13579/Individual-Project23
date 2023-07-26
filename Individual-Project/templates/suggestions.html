@@ -2,26 +2,75 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    
+    <title>Supermarket Suggestions</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <form method="POST" action="/suggestions">
-    <div>
-        <label>product name</label>
-            <div>
-                <input type="product"  name="product" id="productStr">
-            </div>
+    <div class="container mt-5">
+        <div class="jumbotron text-center bg-light">
+            <!-- Supermarket-themed Heading -->
+            <h2 class="text-primary">Supermarket Suggestions</h2>
         </div>
 
-    <div>
-        <label>picture link</label>
-            <div>
-                <input type="text"  name="picture" id="pcitureimg" width="100" height="100">
-            </div>
+        <!-- Add some margin to the top and bottom of the button group -->
+        <div class="text-center my-4">
+            <!-- Convert the links to buttons -->
+            <a href="/suggestionstoday" class="btn btn-primary mx-2">Suggestions today</a>
+            <a href="/products" class="btn btn-primary mx-2">Products</a>
+            <a href="/cart" class="btn btn-primary mx-2">Cart</a>
+            <a href="/home" class="btn btn-primary mx-2">Home</a>
         </div>
 
-        <input type="submit" value="Submit">
-    </form>
+        <div class="row justify-content-center">
+            <!-- Widen the suggestion form column -->
+            <div class="col-md-8">
+                <form method="POST" action="/suggestions" class="border p-4 rounded bg-light mt-4">
+                    <div class="form-group">
+                        <label for="product">Product Name</label>
+                        <input type="text" class="form-control" name="product" id="product" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="picture">Picture Link</label>
+                        <input type="text" class="form-control" name="picture" id="picture" required>
+                    </div>
+
+                    <!-- Supermarket-themed Button -->
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap JS (jQuery and Popper.js are also required) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 600px;
+        }
+        .form-group label {
+            font-weight: bold;
+            color: #ff8a65;
+        }
+        .btn-primary {
+            background-color: #ff8a65;
+            border-color: #ff8a65;
+        }
+        .btn-primary:hover {
+            background-color: #ff7043;
+            border-color: #ff7043;
+        }
+        .bg-light {
+            background-color: #ffffff;
+        }
+    </style>
 </body>
 </html>

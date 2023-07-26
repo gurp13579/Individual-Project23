@@ -2,48 +2,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signin</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <form method="post" action="/">
-        <!-- Heading -->
-        <h4>
-        Log in to your account
-        </h4>
+    <div class="container mt-5">
+        <form method="post" action="/" class="border p-4 rounded bg-light">
+            <!-- Heading -->
+            <h4 class="text-center mb-4 text-primary">Log in to your account</h4>
 
-        <!-- Subheading -->
-        <p >
-        Please fill up your information below to sign in.
-        </p>
+            <!-- Subheading -->
+            <p class="text-center mb-4">Please fill up your information below to sign in.</p>
 
-        <!-- Email -->
-        <div>
-            <label>Email address*</label>
-            <div>
-                <input type="email"  name="email" id="emailStr" required>
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">Email address*</label>
+                <input type="email" class="form-control" name="email" id="email" required>
             </div>
-        </div>
 
-        <!-- Password -->
-        <div>
-            <label>Password*</label>
-            <div class="input-group">
-                <input type="password"  name="password" minlength="6">
+            <!-- Password -->
+            <div class="form-group">
+                <label for="password">Password*</label>
+                <input type="password" class="form-control" name="password" minlength="6">
             </div>
-        </div>
-        
-         <div>
-            <label>number*</label>
-            <div class="input-group">
-                <input type="number"  name="number" minlength="3">
+            
+            <!-- Number -->
+            <div class="form-group">
+                <label for="number">Number*</label>
+                <input type="number" class="form-control" name="number" minlength="3">
             </div>
+
+            <!-- Button -->
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+            </div>
+        </form>
+
+        <div class="text-center mt-3">
+            <a href="/signup" class="btn btn-link">Sign up</a>
         </div>
-        <!-- Button -->
-        <div>
-            <input type="submit"/>
-        </div>
-    </form>
-    <br>
-    <a href="/signup"><button>signup</button></a>
+    </div>
+
+    <!-- Add Bootstrap JS (jQuery and Popper.js are also required) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
